@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
+import AuthLayout from '../pages/_layouts/auth';
+import DefaultLayout from '../pages/_layouts/default';
+
 export default function RouteWrapper({
   component: Component,
-  // isPrivate = false, -> o false é definido como default props la embaixo
+  // isPrivate = false, -> o false é def  inido como default props la embaixo
   isPrivate,
   ...rest
 }) {
@@ -18,8 +21,21 @@ export default function RouteWrapper({
   if (signed && !isPrivate) {
     return <Redirect to="/dashboard" />;
   }
+
+  //-> Define o Layout
+  const Layout = signed ? DefaultLayout : AuthLayout;
+
   // -> se passou pelos if, ele estiver logado e nao esta em uma rota privada
-  return <Route {...rest} component={Component} />;
+  return (
+    <Route
+      {...rest}
+      render={props => (
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      )}
+    />
+  );
 }
 
 // -> Validacoes de proptypes
