@@ -5,6 +5,8 @@ import { Route, Redirect } from 'react-router-dom';
 import AuthLayout from '~/pages/_layouts/auth';
 import DefaultLayout from '~/pages/_layouts/default';
 
+import store from '~/store';
+
 export default function RouteWrapper({
   component: Component,
   // isPrivate = false, -> o false é def  inido como default props la embaixo
@@ -12,7 +14,7 @@ export default function RouteWrapper({
   ...rest
 }) {
   // variavel que guarda a informacao se o usuario esta logado
-  const signed = false;
+  const { signed } = store.getState().auth;
   // -> se o usuario nao estiver logado e a rota isPrivate for true
   if (!signed && isPrivate) {
     return <Redirect to="/" />;
