@@ -30,8 +30,8 @@ export const Badge = styled.button`
 export const NotificationList = styled.div`
   position: absolute;
 
-  width: 260px;
-  left: calc(50% - 130px);
+  width: 310px;
+  left: calc(50% - 150px);
 
   top: calc(100% + 30px);
 
@@ -71,6 +71,8 @@ export const Notification = styled.div`
     font-size: 13px;
     line-height: 18px;
   }
+
+  justify-content: space-between;
   time {
     font-size: 12px;
     opacity: 0.6;
