@@ -15,7 +15,7 @@ import pt from 'date-fns/locale/pt-BR';
 
 import api from '~/services/api';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { Container, Time } from './styles';
+import { Container, Time, Scroll } from './styles';
 
 const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
