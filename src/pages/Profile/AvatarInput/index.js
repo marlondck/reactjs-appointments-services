@@ -16,7 +16,7 @@ export default function AvatarInput() {
     if (ref.current) {
       registerField({
         name: 'avatar_id',
-        ref: 'ref.current',
+        ref: ref.current,
         path: 'dataset.file',
       });
     }
@@ -46,7 +46,6 @@ export default function AvatarInput() {
         />
         <input
           type="file"
-          name="file"
           id="avatar"
           accept="image/*"
           data-file={file}

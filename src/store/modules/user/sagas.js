@@ -6,10 +6,10 @@ import { updateProfileSuccess, updateProfileFailure } from './actions';
 
 export function* updateProfile({ payload }) {
   try {
-    const { name, email, ...rest } = payload.data;
+    const { name, email, avatar_id, ...rest } = payload.data;
     // -> object assign junta objetos, e como parametro se tiver preenchido o oldpassword ele passara o restante dos campos no caso nova senha, se nao passara vazio
     const profile = Object.assign(
-      { name, email },
+      { name, email, avatar_id },
       rest.oldPassword ? rest : {}
     );
 
