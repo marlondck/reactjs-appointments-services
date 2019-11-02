@@ -43,7 +43,7 @@ export const Time = styled.li`
   padding: 10px;
   border-radius: 4px;
 
-  opacity: ${props => (props.past ? 0.6 : 1)};
+  opacity: ${props => (props.past ? 0.3 : 1)};
 
   box-shadow: ${props =>
     !props.available
@@ -62,6 +62,6 @@ export const Time = styled.li`
     font-weight: bold;
     font-size: 13px;
     margin-top: 3px;
-    color: ${props => (props.available ? '#999' : '#666')};
+    color: ${props => (props.available ? '#999' : '#ff892e')};
   }
 `;

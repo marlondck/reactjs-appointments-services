@@ -8,6 +8,14 @@ import { Container, Content, Profile } from './styles';
 
 export default function Header() {
   const profile = useSelector(state => state.user.profile);
+  
+  function avatarExists() {
+    if (profile.avatar === null) {
+    return 'https://api.adorable.io/avatars/50/abott@adorable.png';
+    } else {
+      return profile.avatar.url;
+    }
+  }
 
   return (
     <Container>
@@ -25,11 +33,8 @@ export default function Header() {
               <Link to="/profile">Meu Perfil</Link>
             </div>
             <img
-              src={
-                profile.avatar.url ||
-                'https://api.adorable.io/avatars/50/abott@adorable.png'
-              }
-              alt="Marlon"
+              src={avatarExists()}
+              alt={profile.name}
             />
           </Profile>
         </aside>
